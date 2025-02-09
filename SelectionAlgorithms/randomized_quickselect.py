@@ -36,20 +36,22 @@ def randomized_quickselect(arr, l, r, k):
      # Handle invalid k values
     if k <= 0 or k > len(arr):
         raise ValueError(f"k must be between 1 and {len(arr)}. Got k = {k}.")
-    # the left should be smaller than right
-    if l < r:
-        # gets the partion index with partitioned array
-        pivot = partation(arr, l, r)
+    
+    # Base case: If the subarray has only one element, return it
+    if l == r:
+        return arr[l]
+    # gets the partion index with partitioned array
+    pivot = partation(arr, l, r)
 
-        # recursively returns the kth smallest element if the k is smaller than pivot
-        if k-1 < pivot:
-            return randomized_quickselect(arr, l, pivot-1, k)
-        # returns the pivot element if the kth samllest is pivot
-        elif k-1 == pivot:
-            return arr[pivot]
-        # recursively returns the kth element from right part if the kth is grater than pivot
-        else:
-            return randomized_quickselect(arr, pivot+1, r, k)
+    # recursively returns the kth smallest element if the k is smaller than pivot
+    if k-1 < pivot:
+        return randomized_quickselect(arr, l, pivot-1, k)
+    # returns the pivot element if the kth samllest is pivot
+    elif k-1 == pivot:
+        return arr[pivot]
+    # recursively returns the kth element from right part if the kth is grater than pivot
+    else:
+        return randomized_quickselect(arr, pivot+1, r, k)
         
 
 arr = [3, 6, 2, 7, 5, 1, 4, 9, 8]
