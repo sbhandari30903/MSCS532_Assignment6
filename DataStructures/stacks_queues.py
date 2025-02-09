@@ -30,11 +30,11 @@ class Stack:
 
 class Queue:
     def __init__(self):
-        # Initialize an empty list to store queue elements
+        # initialize an empty list
         self.items = []
     
     def enqueue(self, item):
-        # Add an item to the end of the queue
+        # add an item to the end of the queue
         self.items.append(item)
     
     def dequeue(self):
@@ -56,3 +56,24 @@ class Queue:
     def size(self):
         # return the number of items in the queue
         return len(self.items)
+
+
+# stack example
+stack = Stack()
+stack.push(1)
+stack.push(2)
+stack.push(3)
+print(stack.pop())  # Output: 3
+print(stack.peek())  # Output: 2
+print(stack.is_empty())  # Output: False
+print(stack.size())  # Output: 2
+
+# Queue example
+queue = Queue()
+queue.enqueue(1)
+queue.enqueue(2)
+queue.enqueue(3)
+print(queue.dequeue())  # Output: 1
+print(queue.peek())  # Output: 2
+print(queue.is_empty())  # Output: False
+print(queue.size())  # Output: 2
